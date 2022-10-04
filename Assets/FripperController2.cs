@@ -19,37 +19,38 @@ public class FripperController2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount > 0)
+        for (int i = 0; i < Input.touchCount; i++)
         {
-            Touch touch0 = Input.touches[0];
-            Touch touch1 = Input.touches[1];
+            Touch touch = new Touch();
+            touch = Input.touches[i];
+
+                if (touch.phase == TouchPhase.Began && touch.position.x < 540 && tag == "LeftFripperTag")
+                {
+                    SetAngle(this.flickAngle);
+                }
+
+                if (touch.phase == TouchPhase.Began && touch.position.x > 540 && tag == "RightFripperTag")
+                {
+                    SetAngle(this.flickAngle);
+                }
 
 
-            if (touch0.phase == TouchPhase.Began && touch0.position.x<540 && tag == "LeftFripperTag")
-            {
-                SetAngle(this.flickAngle);
-            }
+                if (touch.phase == TouchPhase.Ended && touch.position.x < 540 && tag == "LeftFripperTag")
+                {
+                    SetAngle(this.defaultAngle);
+                }
 
-            if (touch0.phase == TouchPhase.Began && touch0.position.x > 540 && tag == "RightFripperTag")
-            {
-                SetAngle(this.flickAngle);
-            }
-
-
-            if (touch0.phase == TouchPhase.Ended && touch0.position.x < 540 && tag == "LeftFripperTag")
-            {
-                SetAngle(this.defaultAngle);
-            }
-
-            if (touch0.phase == TouchPhase.Ended && touch0.position.x>540  && tag == "RightFripperTag")
-            {
-                SetAngle(this.defaultAngle);
-            }
+                if (touch.phase == TouchPhase.Ended && touch.position.x > 540 && tag == "RightFripperTag")
+                {
+                    SetAngle(this.defaultAngle);
+                }
+            
+        }
 
             Debug.Log("touch0=" + touch0);
             //Debug.Log("touch1=" + touch1);
 
-        }
+        
 
     }
 
