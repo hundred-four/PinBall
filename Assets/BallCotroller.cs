@@ -8,6 +8,7 @@ public class BallCotroller : MonoBehaviour
     private float visiblePosZ = -6.5f;
     private GameObject gameoverText;
     private GameObject scoreText;
+    public GameObject replay;
     private int score = 0;
 
     // Start is called before the first frame update
@@ -25,6 +26,11 @@ public class BallCotroller : MonoBehaviour
         if (this.transform.position.z < this.visiblePosZ)
         {
             this.gameoverText.GetComponent<Text>().text = "Game Over";
+        }
+
+        if (this.transform.position.y < -100)
+        {
+            this.replay.SetActive(true);
         }
         
     }

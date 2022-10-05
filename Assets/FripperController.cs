@@ -50,7 +50,7 @@ public class FripperController : MonoBehaviour
         {
             SetAngle(this.defaultAngle);
         }
-        
+
     }
 
     public void SetAngle(float angle)

@@ -47,7 +47,6 @@ public class FripperController2 : MonoBehaviour
             
         }
 
-            Debug.Log("touch0=" + touch0);
             //Debug.Log("touch1=" + touch1);
 
         
